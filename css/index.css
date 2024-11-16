@@ -1,0 +1,48 @@
+
+/* ========== Phần Slide Show ========== */
+.slides {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+}
+
+
+/* ====== PRODUCT ====== */
+.product-container {
+    display: flex;
+}
+
+.category-bar {
+    width: 300px;
+    border-right: 1px #ccc solid;
+    padding-right: 20px;
+    margin-bottom: 100px;
+}
+
+.category-bar h1 {
+    font-size: 24px;
+}
+
+.category {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.product-grid-container {
+    flex: 1;
+}
+/* ====== FOOTER ====== */
+.footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+}
+header{
+	background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(./dictionary-book-with-open-pages-yg3mrlu333nr9jh6.jpg);
+	height: 100vh;
+	background-size: cover;
+	background-position: center;
+	min-height: 100px;
+}

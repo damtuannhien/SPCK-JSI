@@ -1,83 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Login Form with Light Button</title>
-<!-- important assets
-linear-gradient(#141e30, #2a6c56)
- box-shadow: 0 0 5px #03f484, 0 0 25px #03f484, 0 0 50px #03f484, 0 0 100px #03f484;
-
--->
-<link rel="stylesheet" href="./css/hello.css">
+    <title>Essay Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .quiz-container {
+            width: 50%;
+            margin: auto;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .question p {
+            font-weight: bold;
+        }
+        .result {
+            font-size: 20px;
+            font-weight: bold;
+            color: green;
+        }
+    </style>
 </head>
-
 <body>
-   
-<div class="login-box">
-    <h2>Login Form</h2>
-    <form action="">
-        <div class="username_input">
-            <label for="">Username</label>
-            <input type="text"placeholder="Tên đăng nhập" required>
+    <div class="quiz-container">
+        <h1>Essay Quiz</h1>
+        <div class="question">
+            <p>1. Hãy mô tả tác động của cuộc Cách mạng Công nghiệp đến xã hội hiện đại.</p>
+            <textarea id="answer1" rows="4" cols="50"></textarea>
         </div>
-        <div class="username_input">
-            <label for="">password</label>
-            <input type="password" placeholder=" Mật Khẩu ">
-        </div>
-        <a href="./home2.html" id="username_input">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>Submit
-        </a>
-        <a href="./home.html" id="username_input">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>Back
-        </a>
-    </form>
-    <div class="signup-box">
-        <span>Bạn chưa có tài khoản?</span>
-        <a href="./sigup2.html">Đăng ký ngay</a>
+        <button onclick="submitAnswer()">Submit</button>
+        <p id="result"></p>
     </div>
-    </div>
+
     <script>
-        // Lấy tham chiếu đến các trường nhập liệu
-        let username_input = document.getElementById("username_input");
-        let password_input = document.getElementById("password_input");
-    
-        // Lấy tham chiếu đến nút đăng nhập
-        let login_button = document.getElementById("login_button");
-        
-        // Gắn sự kiện "click" cho nút đăng nhập
-        login_button.addEventListener("click", function(event) {
-
-            // Lấy thông tin tài khoản từ Local Storage
-            let users = JSON.parse(localStorage.getItem("users")) || [];
-            let userExists = false;
-
-            // Kiểm tra xem tài khoản có tồn tại không
-            for (let i = 0; i < users.length; i++) {
-                if (users[i].username === username_input.value && users[i].password === password_input.value) {
-                    userExists = true;
-                    break;
-                }
-            }
-
-            // Kiểm tra nếu tên đăng nhập và mật khẩu đúng
-            if (userExists === true) {
-                alert("Đăng nhập thành công");// Hiển thị thông báo đăng nhập thành công
-                 
-                localStorage.setItem("loggedUser", username_input.value);
+        function submitAnswer() {
+            var answer1 = document.getElementById('answer1').value;
+            if (answer1.trim() !== "") {
+                document.getElementById('result').innerText = "Cảm ơn bạn đã gửi câu trả lời!";
             } else {
-                event.preventDefault(); // Ngăn chặn hành động mặc định của biểu mẫu (chuyển hướng)
-                alert("Đăng nhập thất bại"); // Hiển thị thông báo đăng nhập thất bại
+                document.getElementById('result').innerText = "Vui lòng nhập câu trả lời.";
             }
-        });
+        }
     </script>
-    
-
 </body>
+</html>
+
